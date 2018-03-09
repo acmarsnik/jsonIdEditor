@@ -15,12 +15,8 @@ namespace jsonIdEditor
         {
 
             var j = new jsonFR();
-            Console.WriteLine("Find: ");
-            var find = Console.ReadLine();
-            Console.WriteLine("Replace With: ");
-            var replace = Console.ReadLine();
 
-            var result = j.EditorialResponse(find, replace, " (Updated).json");
+            var result = j.EditorialResponse("babushka$$$", "(Updated).json");
             Console.WriteLine(result);
 
             
