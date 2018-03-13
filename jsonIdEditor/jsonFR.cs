@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-namespace jsonIdEditor
+namespace JsonIdEditor
 {
     /// <summary>  
-    ///  This is the jsonFR Class.  
+    ///  This is the JsonFR Class.  
     /// </summary> 
-    class jsonFR
+    class JsonFR
     {
         public int UpdateIds()
         {
@@ -161,17 +161,16 @@ namespace jsonIdEditor
                         if(akAtt != string.Empty) {
                             if(newCatalog == true)
                             {
+                                updatedJson += Environment.NewLine + "}" + Environment.NewLine + "}";
+
                                 if (intAns == 1)
                                 {
+                                    updatedJson += Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine;
+                                    updatedJson += "////BREAK BETWEEN CONTENT THAT SHOULD BE USED IN TOPAZ";
                                     updatedJson += Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine;
                                 }
                                 else
                                 {
-                                    updatedJson += Environment.NewLine + "}" + Environment.NewLine + "}";
-                                    if(fileCnt < 1)
-                                    {
-                                        //updatedJson += Environment.NewLine + "}";
-                                    }
                                     rep.ReplaceMany(directory + "-" + prevArtKey3Dig.ToString() + ".json", updatedJson);
                                     fileCnt += 1;
                                     updatedJson = "";
@@ -188,11 +187,7 @@ namespace jsonIdEditor
                         }
                         else
                         {
-                            if (intAns == 0)
-                            {
-                                updatedJson += Environment.NewLine + "}";
-                            }
-                            updatedJson += Environment.NewLine + "}";
+                            updatedJson += Environment.NewLine + "}" + Environment.NewLine + "}";
                             updatedJson += s;
                             
                         }
@@ -203,9 +198,13 @@ namespace jsonIdEditor
 
                     }
 
-                    if(intAns == 0)
+                    if(intAns == 0 || intAns == 1)
                     {
                         rep.ReplaceMany(updatedFilePath, updatedJson);
+                    }
+                    else
+                    {
+                        rep.ReplaceMany(directory + "-" + prevArtKey3Dig.ToString() + ".json", updatedJson);
                     }
                     
 

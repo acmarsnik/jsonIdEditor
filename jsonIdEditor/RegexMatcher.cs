@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace jsonIdEditor
+namespace JsonIdEditor
 {
     /// <summary>  
     ///  This is the RegexMatcher Class.  

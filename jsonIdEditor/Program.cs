@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace jsonIdEditor
+namespace JsonIdEditor
 {
     /// <summary>  
     ///  This is the Program Class.  
@@ -17,7 +17,7 @@ namespace jsonIdEditor
         static void Main(string[] args)
         {
 
-            var j = new jsonFR();
+            var j = new JsonFR();
 
             var result = j.UpdateIds();
             Console.WriteLine(result);

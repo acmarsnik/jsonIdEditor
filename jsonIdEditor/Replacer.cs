@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace jsonIdEditor
+namespace JsonIdEditor
 {
     /// <summary>  
     ///  This is the Replacer Class.  
