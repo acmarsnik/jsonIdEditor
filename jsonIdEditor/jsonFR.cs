@@ -16,12 +16,11 @@ namespace JsonIdEditor
     {
         public int UpdateIds()
         {
-            string fullFilePath;
-            int fileCnt = 0;
-            OpenFileDialog file = new OpenFileDialog();
+            JsonInfo jsonInfo = new JsonInfo();
+            
             try
             {
-                if (file.ShowDialog() == DialogResult.OK)
+                if (jsonInfo.file.ShowDialog() == DialogResult.OK)
                 {
                     Console.WriteLine("Do you want to split the file by the first 3 digits of the Article Key?" + Environment.NewLine + 
                         "Enter y for yes or n for no");
@@ -43,11 +42,11 @@ namespace JsonIdEditor
 
                     }
 
-                    fullFilePath = file.FileName;
+                    jsonInfo.fullFilePath = jsonInfo.file.FileName;
                     Replacer rep = new Replacer();
-                    StreamReader reader = new StreamReader(fullFilePath);
+                    StreamReader reader = new StreamReader(jsonInfo.fullFilePath);
                     string input = reader.ReadToEnd();
-                    String[] dirFn = fullFilePath.Split('.');
+                    String[] dirFn = jsonInfo.fullFilePath.Split('.');
                     string directory = dirFn[0];
                     string updatedFilePath = directory + " (Updated)" + ".json";
                     String[] objects = input.Split('}');
@@ -172,7 +171,7 @@ namespace JsonIdEditor
                                 else
                                 {
                                     rep.ReplaceMany(directory + "-" + prevArtKey3Dig.ToString() + ".json", updatedJson);
-                                    fileCnt += 1;
+                                    jsonInfo.fileCnt += 1;
                                     updatedJson = "";
                                 }
                                 updatedJson += rep.getFileStart();
