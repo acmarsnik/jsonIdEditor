@@ -7,20 +7,18 @@ using System.Threading.Tasks;
 
 namespace jsonIdEditor
 {
+    /// <summary>  
+    ///  This is the RegexMatcher Class.  
+    /// </summary> 
     class RegexMatcher
     {
-        public List<string> MatchRegex(string input, string re, string word)
+        public string MatchRegex(string input, string re)
         {
-            var maList = new List<string>;
             Regex r = new Regex(re, RegexOptions.IgnoreCase | RegexOptions.Singleline);
-            MatchCollection m = r.Matches(input);
-            foreach(Match ma in m)
-            {
-                var maString = ma.ToString();
-                maList.Add(maString);
-            }
+            Match m = r.Match(input);
+            string maString = m.ToString();
 
-            return maList;
+            return maString;
 
         }
     }

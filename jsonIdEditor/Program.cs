@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace jsonIdEditor
 {
+    /// <summary>  
+    ///  This is the Program Class.  
+    /// </summary> 
     class Program
     {
         [STAThread]
@@ -16,7 +19,7 @@ namespace jsonIdEditor
 
             var j = new jsonFR();
 
-            var result = j.EditorialResponse("babushka$$$", "(Updated).json");
+            var result = j.UpdateIds();
             Console.WriteLine(result);
 
             
