@@ -188,8 +188,13 @@ namespace jsonIdEditor
                         }
                         else
                         {
+                            if (intAns == 0)
+                            {
+                                updatedJson += Environment.NewLine + "}";
+                            }
                             updatedJson += Environment.NewLine + "}";
                             updatedJson += s;
+                            
                         }
 
                         prevArtKey3Dig = currArtKey3Dig;
